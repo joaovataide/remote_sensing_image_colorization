@@ -1,29 +1,30 @@
 from .settings import img_default_size
+import numpy as np
 
-
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import os
-import cv2
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from tensorflow.keras import backend as K
-from tensorflow.keras.layers import Conv2D,MaxPooling2D,UpSampling2D,Input,BatchNormalization,LeakyReLU
-from tensorflow.keras.layers import concatenate
-from tensorflow.keras.models import Model
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import tensorflow as tf
-from PIL import Image
-
-
-WIDTH=224
-HEIGHT=224
-
-
-
+step = 56
+window = 224
 
 def make_colorized_rolling_img(img):
-    return img
+    colorized_img = np.zeros(img.shape, dtype=np.float)
+    num_imgs = np.zeros(img.shape, np.int)
+    x, y = 0, 0
+    while y - step + 1 <= img.shape[1] - window:
+        while x - step + 1 <= img.shape[0] - window:
+            x = min(x + window, img.shape[0]) - window
+            y = min(y + window, img.shape[1]) - window
+            l_img_window = img[x: x + window, y: y + window]
+
+            colorized_window = colorize_image(l_img_window)
+            colorized_img[x: x + window, y: y + window] = (
+                colorized_img[x: x + window, y: y + window]*num_imgs[x: x + window, y: y + window]\
+                    + colorized_window*1)\
+                        /(num_imgs[x: x + window, y: y + window] + 1)
+            num_imgs[x: x + window, y: y + window] = num_imgs[x: x + window, y: y + window] + 1
+
+            x += step
+        y += step
+
+    return colorized_img
 
 
 
