@@ -5,6 +5,8 @@ authors:
   given-names: João Victor
 - family-names: Adornes Nunes
   given-names: João Inácio
+- family-names: de Oliveira Siervi Manso
+  given-names: Evandro
 title: "satellite_image_colorization"
 version: 1.0.0
 doi: 10.5281/zenodo.1234
