@@ -1,3 +1,3 @@
-# satellite_image_colorization
+# remote_sensing_image_colorization
 
 Miro: https://miro.com/welcomeonboard/ZWhoaEc2bGhjbGJRSmJ0V2F3TGUybUFUUE9JUmJNV2hIazVmcTdvRXh6d0x3UG52ZU1CUEN0ekRuOUlPNm1qNHwzMDc0NDU3MzYxNTU0NzEwNzc3?invite_link_id=361174851852
