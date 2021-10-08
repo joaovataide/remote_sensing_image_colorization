@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Ataide Ferreira
+  given-names: João Victor
+- family-names: Adornes Nunes
+  given-names: João Inácio
+title: "satellite_image_colorization"
+version: 1.0.0
+doi: 10.5281/zenodo.1234
+date-released: 2021-10-08
+url: "https://github.com/joaovataide/satellite_image_colorization"
